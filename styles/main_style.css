@@ -1,0 +1,13 @@
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.choose{
+  text-align: center;
+  width:60%;
+  margin: 0 20%;
+}
+.choose_btn{
+  display:inline-block;
+  width: 40%
+}
