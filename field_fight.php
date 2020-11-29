@@ -40,8 +40,11 @@ if (!isset($_SESSION['iduser'])){
 					<div style="display: table-row">
 						<form method="post" action='index.php?after=1'>
 							<input id="course" type="text" name ="course" hidden>
-							<input id="end" type="submit" value="End game" style="display: table-cell">
+							<input class="full_width" id="end" type="submit" value="End game" style="display: table-cell">
 						</form>
+				  </div>
+					<div style="display: table-row">
+						<p class="full_width" id= "message"></p>
 				  </div>
 		</div>
 		<script src="scripts/fight_script.js"></script>

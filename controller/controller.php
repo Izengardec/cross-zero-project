@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Controller{
   private $model;
   public function __construct($model){
@@ -23,6 +24,26 @@ class Controller{
   public function end_session(){
     session_unset();
     session_destroy();
+    header ('Location: index.php');  // перенаправление на нужную страницу
+    exit();    // прерываем работу скрипта, чтобы забыл о прошлом
   }
+  public function changed_pass($id,$old_pass,$new_pass){
+    //echo $old_pass.$new_pass;
+    if($old_pass==$_SESSION['pass']){
+      $this->model->change_pass($id,$new_pass);
+      $_SESSION['pass']=$new_pass;
+    }
+  }
+  public function changed_log($id,$new_log){
+
+      if ($this->model->change_log($id,$new_log)==1)
+        $_SESSION['login']=$new_log;
+
+  }
+  public function changed_nick($id,$new_nick){
+      if ($this->model->change_nick($id,$new_nick)==1)
+        $_SESSION['nick']=$new_nick;
+  }
+
 }
  ?>

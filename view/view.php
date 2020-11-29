@@ -40,13 +40,21 @@ class View{
     public function output_statistic($idUser){
       $s='';
       $s="<p>Games played:</p>".$this->model->count_game($idUser)."
-      <br><p>Count of winnings:</p>".$this->model->count_win($idUser)."
-      <br><p>Count of lose:</p>".$this->model->count_lose($idUser)."
-      <br><p>Count of not finished:</p>".$this->model->count_not_game($idUser).
-      "<br><p>Count draw:</p>".$this->model->count_draw($idUser)."
-      <br><p>Procent win:</p>".$this->model->count_win($idUser)/$this->model->count_game($idUser)*100;
+      <br><p>Winnings:</p>".$this->model->count_win($idUser)."
+      <br><p>Losing:</p>".$this->model->count_lose($idUser)."
+      <br><p>Number of not finished games:</p>".$this->model->count_not_game($idUser).
+      "<br><p>Draw:</p>".$this->model->count_draw($idUser)."
+      <br><p>Procent win:</p>".$this->model->count_win($idUser)/$this->model->count_game($idUser)*100 ."%";
       foreach ($this->model->all_game($idUser) as $game) {
-         $s.='<br><a href="game.php?game='.$game[1].'&course='.$game[3].'" target="_blank">Game #'.$game[1].'</a>';
+        $tmp='not finished';
+        if ($game[3][strlen($game[3])-1]=='!'){
+          $tmp='won';
+        } else if ($game[3][strlen($game[3])-1]=='?'){
+          $tmp='lost';
+        } else if ($game[3][strlen($game[3])-1]=='-'){
+          $tmp='drew';
+        }
+         $s.='<br><a href="game.php?game='.$game[1].'&course='.$game[3].'" target="_blank">Game #'.$game[1].' you '.$tmp.' this game</a>';
       }
       return $s;
     }

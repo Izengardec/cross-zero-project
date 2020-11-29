@@ -4,16 +4,6 @@ class ModelReg extends Model{
   public function __construct($link){
     $this->link=$link;
   }
-  private function check_login($login){
-    if (isset($login))
-    {
-      $query="SELECT  `mail` FROM `users` WHERE mail='".$login."'";
-      $result2=mysqli_query($this->link,$query)or die("Ошибка запроса".mysqli_error($this->link));
-      if (mysqli_num_rows($result2)!=0){
-        return 1;
-      } else return 0;
-    }
-  }
   public function sign_in($login,$password){
     if (isset($login) && isset($password))
     {
@@ -24,7 +14,7 @@ class ModelReg extends Model{
   }
 
   public function registration($login,$password,$nick){
-    if (isset($login) && isset($password) && $this->check_login($login)==0)
+    if (isset($login) && isset($password) && $this->check_login($login,$this->link)==0)
     {
       $query="INSERT INTO `users`( `mail`, `password`,`nickname`) VALUES ('".$login."','".$password."','".$nick."')";
       $result2=mysqli_query($this->link,$query)or die("Ошибка запроса".mysqli_error($this->link));

@@ -2,3 +2,7 @@
   margin:auto;
   border: black solid 2px;
 }
+.full_width{
+  width: 100%;
+  text-align: center;
+}

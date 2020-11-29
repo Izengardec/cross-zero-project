@@ -44,6 +44,24 @@ class PersonModel extends Model
     }
     return $row;
   }
+  public function change_log($id,$newlog){
+    if ($this->check_login($login, $this->link)==0){
+      $query="UPDATE `users` SET `mail`='$newlog' WHERE id=$id";
+      $result2=mysqli_query($this->link,$query)or die($query.mysqli_error($this->link));
+      return 1;
+    } else return 0;
+  }
+  public function change_nick($id,$newnick){
+    if ($this->check_nick($newnick, $this->link)==0){
+      $query="UPDATE `users` SET `nickname`='$newnick' WHERE id=".$id;
+      $result2=mysqli_query($this->link,$query)or die($query.mysqli_error($this->link));
+      return 1;
+    } else return 0;
+  }
+  public function change_pass($id,$newpass){
+      $query="UPDATE `users` SET `password`='$newpass' WHERE id=$id";
+      $result2=mysqli_query($this->link,$query)or die($query.mysqli_error($this->link));
+    }
 }
 
  ?>
