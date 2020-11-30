@@ -1,6 +1,7 @@
 .fight_field{
   margin:auto;
   border: black solid 2px;
+  display: inline;
 }
 .full_width{
   width: 100%;

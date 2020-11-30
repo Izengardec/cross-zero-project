@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_id() == '') {
+    session_start();
+}
 class Controller{
   private $model;
   public function __construct($model){
@@ -11,6 +13,10 @@ class Controller{
   public function signing($login,$password){
     $row = $this->model->sign_in($login,$password);
     if (isset($row)){
+      if(session_id() != '') {
+        session_unset();
+        session_destroy();
+      }
       session_start();
       $_SESSION['iduser']=$row[0];
       $_SESSION['login']=$row[1];
@@ -28,7 +34,6 @@ class Controller{
     exit();    // прерываем работу скрипта, чтобы забыл о прошлом
   }
   public function changed_pass($id,$old_pass,$new_pass){
-    //echo $old_pass.$new_pass;
     if($old_pass==$_SESSION['pass']){
       $this->model->change_pass($id,$new_pass);
       $_SESSION['pass']=$new_pass;

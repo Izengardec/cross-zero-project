@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(session_id() == '') {
+    session_start();
+} 
   require_once 'controller\controller.php';
   require_once 'model\person_model.php';
   require_once 'view\view.php';

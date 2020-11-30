@@ -23,24 +23,24 @@ if (!isset($_SESSION['iduser'])){
 		</nav>
 		<div class="fight_field" style="display: table">
 				  <div style="display: table-row">
-						<img class="field" id="1" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="2" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="3"  src="images\square-100.png" style="display: table-cell">
+						<img class="field" id="1" src="images\square-100.png" >
+						<img class="field" id="2" src="images\square-100.png" >
+						<img class="field" id="3"  src="images\square-100.png" >
 				  </div>
 				  <div style="display: table-row">
-						<img class="field" id="4" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="5" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="6" src="images\square-100.png" style="display: table-cell">
+						<img class="field" id="4" src="images\square-100.png" >
+						<img class="field" id="5" src="images\square-100.png" >
+						<img class="field" id="6" src="images\square-100.png" >
 				  </div>
 				  <div style="display: table-row">
-						<img class="field" id="7" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="8" src="images\square-100.png" style="display: table-cell">
-						<img class="field" id="9" src="images\square-100.png" style="display: table-cell">
+						<img class="field" id="7" src="images\square-100.png" >
+						<img class="field" id="8" src="images\square-100.png" >
+						<img class="field" id="9" src="images\square-100.png" >
 				  </div>
 					<div style="display: table-row">
 						<form method="post" action='index.php?after=1'>
 							<input id="course" type="text" name ="course" hidden>
-							<input class="full_width" id="end" type="submit" value="End game" style="display: table-cell">
+							<input class="full_width" id="end" type="submit" value="End game" >
 						</form>
 				  </div>
 					<div style="display: table-row">
