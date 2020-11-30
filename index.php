@@ -22,7 +22,7 @@ session_start();
   </ul>
 </nav>
 <div class="choose">
-  <div class="choose_btn" ><img id = "pvp" src="images\pvp.png"><p>PvP</p></div>
+  <div class="choose_btn" ><img id = "pvp" src="images\pvp.png"><p>PvE</p></div>
   <div class="choose_btn" ><img id ="pve" src="images\pve.png"><p>PvE</p></div>
 </div>
 <?php
